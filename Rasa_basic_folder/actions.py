@@ -37,18 +37,6 @@ WeOperate = ['New Delhi', 'Gurgaon', 'Noida', 'Faridabad', 'Allahabad', 'Bhubane
 
 # def restaurant_search(City,Cuisine,budget):
 def restaurant_search(City,Cuisine):
-	# cost_for_two = 0
-	# priceMin=0
-	# priceMax=1000000
-	# if(budget=="<300"):
-	# 	priceMax=299
-	# elif(budget=="300-700"):
-	# 	priceMin=300
-	# 	priceMax=699
-	# else:
-	# 	priceMin=700
-	# cost_for_two = ZomatoData['Average Cost for two']
-	# if(cost_for_two>=priceMin & cost_for_two<=priceMax):
 	TEMP = ZomatoData[(ZomatoData['Cuisines'].apply(lambda x: str(Cuisine).lower() in str(x).lower())) & (ZomatoData['City'].apply(lambda x: str(City).lower() in str(x).lower()))]	
 	return TEMP[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
 	
@@ -58,8 +46,8 @@ def validate_location(location):
 	else:
 		return False
 
-MY_ADDRESS = 'rashika.khandelwal554@gmail.com'
-PASSWORD = '$rashi554'
+MY_ADDRESS = 
+PASSWORD = 
 
 def send_email(name,user_domain,response):
 	# set up the SMTP server
@@ -230,71 +218,6 @@ class ActionCheckLocation(Action):
 
 
 
-
-	# return [SlotSet('location',loc)]
-	 # except:
-    #   dispatcher.utter_message("Sorry, We couldn't find any "+str(cuisine)+" restaurants in "+str(loc)+".")
-    #   found_restaurants=False
-			# for restaurant in restaurant_search(loc,cuisine).iloc[:5].iterrows():
-			# 	restaurant = restaurant[1]
-			# 	response = response + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Aggregate rating']} with avg cost {restaurant['Average Cost for two']} \n\n"
-				
-
-# class ActionSendMail(Action):
-# 	def name(self):
-# 		return 'action_send_mail'
-
-# 	def run(self, dispatcher, tracker, domain):
-# 		loc = tracker.get_slot('location')
-#         cuisine = tracker.get_slot('cuisine')
-# 		user_domain = tracker.get_slot('mail_id')
-# 		found_restaurants = tracker.get_slot('found_restaurants')
-# 		name = user_domain.split('@')[0]
-# 		send_mail(name,user_domain,response)
-# 		return [SlotSet('mail_id',MailID)]
-
-
-
-
-
-
-
-
-
-
-    # else:
-    #   r_data=[]
-    #   for i,r in enumerate(d["restaurants"]):
-    #     r_l=[]
-    #     cost_for_two=int(r['restaurant']['average_cost_for_two'])
-    #     if(cost_for_two>=priceMin and cost_for_two<=priceMax):
-    #       r_l.append(r['restaurant']['id'])
-    #       r_l.append(r['restaurant']['name'])
-    #       r_l.append(float(r['restaurant']['user_rating']['aggregate_rating']))
-    #       r_l.append(cost_for_two)
-    #       r_l.append(r['restaurant']['location']['address'])
-    #       r_data.append(r_l)
-    #   df=pd.DataFrame(data=r_data,columns=["ID","Name","Rating","Avg_Cost_for_Two","Address"])
-    #   df.set_index('ID', inplace=True)
-    #   df=df.sort_values('Rating',ascending=False)
-    #   if(found_restaurants==True):
-    #     if(len(df.Name)>=10): 
-    #       response="Top 10 "+str(cuisine)+" restaurants near "+str(loc)+" are: \n"
-    #       for i in range(10):
-    #         response+=str(i+1)+" "+df.Name[i]+" in "+df.Address[i]+" has been rated "+str(df.Rating[i])+". Average Cost for Two is Rs. "+str(df.Avg_Cost_for_Two[i])+". \n"
-    #       mail_status=True
-    #       send_email(name,user_domain,response)
-    #     elif(len(df.Name)>0 and len(df.Name)<10):  # Couldn't find 10 restaurants
-    #       response="All "+str(cuisine)+" restaurants near "+str(loc).rstrip()+" are: \n"
-    #       for i in range(len(df.Name)):
-    #         response+=str(i+1)+" "+df.Name[i]+" in "+df.Address[i]+" has been rated "+str(df.Rating[i])+". Average Cost for Two is Rs. "+str(df.Avg_Cost_for_Two[i])+". \n"
-    #       mail_status=True
-    #       send_email(name,user_domain,response)
-    #     dispatcher.utter_message("Mail Sent!")
-    #   else:
-    #     mail_status=False
-    #     dispatcher.utter_message("Sorry.No restaurants found")
-    # # dispatcher.utter_message(response)
 
          
 
